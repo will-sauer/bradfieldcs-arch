@@ -9,14 +9,27 @@ int main() {
     #define SUB 0x04;
     #define HALT 0xff;
 
-    
-
+    int memory[20];
     /* organization of main memory
         0 - 13: instructions
         14-15 output
         16-17 input 1
         18-19 input 2
     */
+    
+    int registry[3];
+    /* organization of registry
+        0x00: program counter
+        0x01: general purpose register
+        0x02: general purpose register
+
+    */
+
+   void load_word(int reg, int mem_address);
+   void store_word(int reg, int mem_address);
+   void add_words(int reg_1, int reg_2);
+   void subtract_words(int reg_1, int reg_2);
+   void halt();
 
    /* instruction mapping
         load_word   0x01
