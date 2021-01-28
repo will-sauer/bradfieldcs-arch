@@ -46,6 +46,10 @@ void add(int reg_addr_1, int reg_addr_2, int registers[] ) {
     registers[reg_addr_1] = sum;
 }
 
+void store_word(int reg_addr, int mem_addr, int memory[], int registers[] ) {    
+    memory[mem_addr] = registers[reg_addr];
+}
+
 void vm(int memory[]) {
     int registers[3];
 
@@ -70,6 +74,9 @@ void vm(int memory[]) {
         }
         else if (current_instruction == ADD) {
             add(memory[current_instruction_address + 1], memory[current_instruction_address + 2], registers);
+        }
+        else if (current_instruction == STORE_WORD) {
+            store_word(memory[current_instruction_address + 1], memory[current_instruction_address + 2], memory, registers);
         }
 
         registers[PROGRAM_COUNTER] += 3;
