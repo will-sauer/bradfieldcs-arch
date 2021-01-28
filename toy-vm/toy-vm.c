@@ -41,6 +41,11 @@ void load_word(int reg_addr, int mem_addr, int memory[], int registers[] ) {
     registers[reg_addr] = sum;    
 }
 
+void add(int reg_addr_1, int reg_addr_2, int registers[] ) {
+    int sum = registers[reg_addr_1] + registers[reg_addr_2];
+    registers[reg_addr_1] = sum;
+}
+
 void vm(int memory[]) {
     int registers[3];
 
@@ -52,14 +57,19 @@ void vm(int memory[]) {
     while(registers[PROGRAM_COUNTER] < 14) {
         int current_instruction_address = registers[PROGRAM_COUNTER];
         int current_instruction = memory[current_instruction_address];
-        printf("Processing %02x", current_instruction);
-        printf("\n");
+
+        printf("Instruction address %02x  ", registers[PROGRAM_COUNTER]);
+        printf("Instruction code %02x", current_instruction);
+        printf("\n");        
 
         if (current_instruction == HALT) {
             break;
         }
         else if (current_instruction == LOAD_WORD) {
             load_word(memory[current_instruction_address + 1], memory[current_instruction_address + 2], memory, registers);
+        }
+        else if (current_instruction == ADD) {
+            add(memory[current_instruction_address + 1], memory[current_instruction_address + 2], registers);
         }
 
         registers[PROGRAM_COUNTER] += 3;
