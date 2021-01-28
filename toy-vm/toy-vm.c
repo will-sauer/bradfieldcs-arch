@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdbool.h>
 
 //instruction set
 # define LOAD_WORD 0x01
@@ -46,8 +47,9 @@ void add(int reg_addr_1, int reg_addr_2, int registers[] ) {
     registers[reg_addr_1] = sum;
 }
 
-void store_word(int reg_addr, int mem_addr, int memory[], int registers[] ) {    
-    memory[mem_addr] = registers[reg_addr];
+void store_word(int reg_addr, int mem_addr, int memory[], int registers[] ) {
+    memory[mem_addr] = registers[reg_addr] % 256;
+    memory[mem_addr + 1] = registers[reg_addr] / 256;
 }
 
 void vm(int memory[]) {
@@ -84,9 +86,18 @@ void vm(int memory[]) {
 
     printf("Registers after:\n");
     print_registers(registers);
-
 }
 
+bool arrays_match(int arr_1[], int arr_2[]) {
+    int current_position = 0;
+    while(current_position < PROGRAM_LENGTH) {
+        if(arr_1[current_position] != arr_2[current_position])
+            return false;
+        
+        current_position++;
+    }
+    return true;
+}
 
 void main() {
     int program[MEMORY_LENGTH] = {
@@ -101,9 +112,26 @@ void main() {
         0x0c, 0x00
     };
 
+    int expected_memory[MEMORY_LENGTH] = {
+        LOAD_WORD, REG_1, 0x10,
+        LOAD_WORD, REG_2, 0x12,
+        ADD, REG_1, REG_2,
+        STORE_WORD, REG_1, 0x0e,
+        HALT,
+        0x00,
+        0xad, 0x14,
+        0xa1, 0x14,
+        0x0c, 0x00
+    };
+
     printf("Memory before:\n");
     print_memory(program);
     vm(program);
     printf("Memory after:\n");
     print_memory(program);
+    printf("Memory expected:\n");
+    print_memory(expected_memory);
+
+    printf("Matches expected result? -- ");
+    printf("%s", arrays_match(expected_memory, program) ? "true \n" : "false \n");
 }
