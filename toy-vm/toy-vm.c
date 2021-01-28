@@ -12,7 +12,7 @@
 # define PROGRAM_COUNTER 0x00
 # define REG_1 0x01
 # define REG_2 0x02
-# define REGISTER_LENGTH 3
+# define REGISTER_LENGTH 5
 
 //program
 # define PROGRAM_LENGTH 14
@@ -37,7 +37,8 @@ void print_registers(int registers[]) {
 }
 
 void load_word(int reg_addr, int mem_addr, int memory[], int registers[] ) {
-    registers[reg_addr] = memory[mem_addr];
+    int sum = memory[mem_addr] + (memory[mem_addr + 1] * 256);
+    registers[reg_addr] = sum;    
 }
 
 void vm(int memory[]) {
@@ -50,12 +51,15 @@ void vm(int memory[]) {
 
     while(registers[PROGRAM_COUNTER] < 14) {
         int current_instruction_address = registers[PROGRAM_COUNTER];
+        int current_instruction = memory[current_instruction_address];
+        printf("Processing %02x", current_instruction);
+        printf("\n");
 
-        if (current_instruction_address == HALT) {
+        if (current_instruction == HALT) {
             break;
         }
-        else if (current_instruction_address == LOAD_WORD) {
-            load_word(current_instruction_address + 1, current_instruction_address + 2, memory, registers);
+        else if (current_instruction == LOAD_WORD) {
+            load_word(memory[current_instruction_address + 1], memory[current_instruction_address + 2], memory, registers);
         }
 
         registers[PROGRAM_COUNTER] += 3;
