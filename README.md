@@ -2,7 +2,7 @@ This repo holds code-related work from a course on Computer Architechture that I
 
 The course covered the following topics:
 * The Fetch-Decode-Execute Cycle
-* Lab: Writing a Virtual Machine (I did mine in C)
+* Lab: Writing a Virtual Machine ([completed lab, in C](https://github.com/will-sauer/bradfieldcs-arch/tree/main/toy-vm))
 * Binary Encodings of Data
 * Introduction to Assembly Programming
 * Intro to Logic Circuits
