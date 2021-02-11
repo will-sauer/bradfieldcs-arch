@@ -1,0 +1,16 @@
+#count up to and print 10
+li	$t0	0		#counter is zero
+li	$t1	11		#counter max
+li	$v0	1		#print instruction
+li 	$a0 	0		#ultimate total
+
+Loop:
+slt	$t3	$t0	$t1	#loop test
+bne	$t3	1	Exit	#if result was zero / false, exit
+
+add	$a0	$a0	$t0	#add counter to total
+add	$t0	$t0	1	#increment the counter
+j	Loop			#execute loop again
+
+Exit:
+syscall				#and print
