@@ -23,4 +23,4 @@ This repo holds code-related work from a course on Computer Architechture that I
 * Lab: C Programming and Reverse Engineering 
 * The Memory Hierarchy
 
-_Note: I used C through the course for no reason other than the practice; was not based on any technical considerations_
+_Note: I used C throughout the course for no reason other than the practice; was not based on any technical considerations._
