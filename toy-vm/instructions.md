@@ -1,0 +1,7 @@
+The Exercise
+
+Write a “virtual computer” function that takes as input a reference to main memory (an array of 20 bytes), executes the stored program by fetching and decoding each instruction until it reaches halt, then returns. This function shouldn’t return anything, but should have the side-effect of mutating “main memory”.
+
+Your VM should follow the fetch-decode-execute format, which you can model in a loop. The program counter should always contain the address of the “next instruction” (and so should start at 0). Fetch the current instruction by getting all of the relevant information from memory, decode the instruction to find out what operation should be performed using which registers/memory-addresses, then execute the instruction and update the program counter appropriately.
+
+Your virtual computer should have one piece of internal state, an array of three registers: two general purpose registers and a program counter. Main memory is considered external state because it is passed in as an argument. Write some tests for your virtual computer function using different stored programs and different input values. Your test inputs should just be array literals representing main memory. After calling your VM function on the memory, test that its output section contains the correct computed value.
