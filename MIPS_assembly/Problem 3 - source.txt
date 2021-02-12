@@ -1,0 +1,3 @@
+Convert a binary number, represented as a string (e.g. ‘101010’), to its decimal equivalent using first principles. Given a binary input string, your program should produce a decimal output.
+
+Binary digit strings are given to you as null terminated ASCII strings in the test runner.

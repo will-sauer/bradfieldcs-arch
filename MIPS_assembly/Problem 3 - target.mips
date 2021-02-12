@@ -1,0 +1,35 @@
+.data
+	ask:	.asciiz	"Enter your 8 digit binary string"
+	buffer:	.space	9	#we need 9 here if we want to take in 8 bits becuuse we used an asciiz which has a null character 
+	reply:	.asciiz	"This is equivalent to 0d"
+
+.text
+
+la	$a0	ask	#load address of string with the prompt
+li	$v0	4	#load the read string op code
+syscall
+
+la	$a0	buffer	#load the address of where the response will be stored
+li	$a1	9	#load the size of the space that is being allotted by the buffer
+li	$v0	8
+move	$t0	$a0	#saves the string received into $t0
+syscall
+
+li	$t1	0	#initialize accumulator
+li	$t2	0	#intialize counter
+li	$t3	128	#multiplier
+
+LOOP:
+lb	$t4	0($t0)		#load byte	
+subi	$t4	$t4	48	#"decode" the ascii
+mul	$t5	$t4	$t3	#multiply by the appropriate power of two
+add	$t1	$t1	$t5	#add current bytes decimal value to accumulator
+divu	$t3	$t3	2	#divide multiplier by power of two
+addi	$t0	$t0	1	#advance the address for load byte by 1
+addi	$t2	$t2	1	#increment counter
+bne	$t2	8	LOOP	
+
+PRINT:
+move	$a0	$t1
+li	$v0	1	#print opcode
+syscall
