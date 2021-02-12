@@ -9,12 +9,11 @@ This repo holds code-related work from a course on Computer Architechture that I
 
 <p>&nbsp;</p>
 
-## Material covered and completed work
-
+## What I learned and completed work
 * The Fetch-Decode-Execute Cycle
-* Lab: Writing a Virtual Machine ([completed lab, in C](https://github.com/will-sauer/bradfieldcs-arch/tree/main/toy-vm))
+* Lab: Writing a Virtual Machine ([completed lab](https://github.com/will-sauer/bradfieldcs-arch/tree/main/toy-vm))
 * Binary Encodings of Data
-* Introduction to Assembly Programming
+* Introduction to Assembly Programming ([completed exercises](https://github.com/will-sauer/bradfieldcs-arch/tree/main/MIPS_assembly))
 * Intro to Logic Circuits
 * Sequential Circuit Components
 * The Structure of a Simple CPU
@@ -23,3 +22,5 @@ This repo holds code-related work from a course on Computer Architechture that I
 * An Overview of C, the Portable Assembly Language
 * Lab: C Programming and Reverse Engineering 
 * The Memory Hierarchy
+
+_Note: I used C through the course for no reason other than the practice; was not based on any technical considerations_
