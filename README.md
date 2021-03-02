@@ -9,13 +9,13 @@ This repo holds code-related work from a course on Computer Architechture that I
 
 <p>&nbsp;</p>
 
-## Topics covered and links to completed labs
-_Note: I used C throughout the course for no reason other than the practice; was not based on any technical considerations. Also note, there were some sections I skipped (they aren't included in this list) and some labs I didn't complete because they didn't seem totally germane to my longer term goals._
+## Completed lab work
+* Lab: Writing a Virtual Machine ([repo](https://github.com/will-sauer/bradfieldcs-arch/tree/main/toy-vm))
+* Introduction to Assembly Programming ([repo](https://github.com/will-sauer/bradfieldcs-arch/tree/main/MIPS_assembly))
+
+## Additional topics covered
 * The Fetch-Decode-Execute Cycle
-* Lab: Writing a Virtual Machine ([completed lab](https://github.com/will-sauer/bradfieldcs-arch/tree/main/toy-vm))
 * Binary Encodings of Data
-* Introduction to Assembly Programming ([completed exercises](https://github.com/will-sauer/bradfieldcs-arch/tree/main/MIPS_assembly))
-There are a ton of inefficiencies in this code. My goal here was not to write "optimized" assembly but rather to familiarize myself with the language and process of writing assembly and solve the problem at hand. if I have time, I may come back to make these more efficient though I think  this level of proficiency is enough to serve my long term goals.
 * Intro to Logic Circuits
 * Sequential Circuit Components
 * The Structure of a Simple CPU
@@ -23,4 +23,7 @@ There are a ton of inefficiencies in this code. My goal here was not to write "o
 * Lab: Writing a Virtual Operating System
 * An Overview of C, the Portable Assembly Language
 * The Memory Hierarchy
+
+
+_Notes: I used C throughout the course for no reason other than the practice; was not based on any technical considerations. Also note, there were some sections I skipped (they aren't included in this list) and some labs I didn't complete because they didn't seem totally germane to my longer term goals._
 
